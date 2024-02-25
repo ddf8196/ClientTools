@@ -35,7 +35,7 @@
 /x64
 /PeEditor/x64
 /PortableExecutable/x64
-/PreLoader/x64
+/PreLoaderUWP/x64
 /Debug
 /Release
 /PeEditor/Debug

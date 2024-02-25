@@ -10,7 +10,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PeEditor", "PeEditor\PeEdit
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PortableExecutable", "PortableExecutable\PortableExecutable.vcxproj", "{F1841183-5E55-40D1-A013-7498264757D5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PreLoader", "PreLoader\PreLoader.vcxproj", "{0136A4C1-10AF-480B-B845-006821CE5054}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PreLoaderUWP", "PreLoaderUWP\PreLoaderUWP.vcxproj", "{0136A4C1-10AF-480B-B845-006821CE5054}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
