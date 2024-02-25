@@ -8,7 +8,14 @@ void loadDlls();
 void openConsole() {
     AllocConsole();
     SetConsoleTitleA("Debug Console");
-    system("chcp 65001>nul");
+
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
+
+    DWORD mode = 0;
+    GetConsoleMode(GetStdHandle(STD_OUTPUT_HANDLE), &mode);
+    SetConsoleMode(GetStdHandle(STD_OUTPUT_HANDLE), mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+
     HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
     INT hCrt = _open_osfhandle((INT)hCon, _O_TEXT);
     FILE* hf = _fdopen(hCrt, "w");
@@ -18,7 +25,6 @@ void openConsole() {
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved) {
-	
     if (ul_reason_for_call == DLL_PROCESS_ATTACH) {
         openConsole();
         // For #683, Change CWD to current module path
@@ -30,8 +36,6 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 		
         fixUpLibDir();
         loadDlls();
-    }
-    if (ul_reason_for_call == DLL_PROCESS_DETACH) {
     }
     return TRUE;
 }

@@ -74,7 +74,11 @@ bool loadLib(LPCTSTR libName, bool showFailInfo = true) {
 }
 
 void loadPlugins() {
-    directory_iterator ent("plugins");
+    std::error_code ec;
+    if (!exists(path(TEXT("plugins")), ec) || ec) {
+        return;
+    }
+    directory_iterator ent(TEXT("plugins"));
     for (auto& file : ent) {
         if (!file.is_regular_file())
             continue;
@@ -102,7 +106,8 @@ void loadPlugins() {
 }
 
 void loadDlls() {
-    if (exists(path(TEXT(".\\plugins\\preload.conf")))) {
+    std::error_code ec;
+    if (exists(path(TEXT(".\\plugins\\preload.conf")), ec) && !ec) {
         std::wifstream dllList(TEXT(".\\plugins\\preload.conf"));
         if (dllList) {
             std::wstring dllName;
@@ -119,9 +124,6 @@ void loadDlls() {
             }
             dllList.close();
         }
-    } else {
-        std::wofstream dllList(TEXT(".\\plugins\\preload.conf"));
-        dllList.close();
     }
     std::cout << "PreLoader is running" << std::endl;
     loadPlugins();
