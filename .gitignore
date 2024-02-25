@@ -36,3 +36,9 @@
 /PeEditor/x64
 /PortableExecutable/x64
 /PreLoader/x64
+/Debug
+/Release
+/PeEditor/Debug
+/PeEditor/Release
+/PortableExecutable/Debug
+/PortableExecutable/Release

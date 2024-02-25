@@ -16,9 +16,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\x64\Release\PortableExecutable.lib" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="cxxopts.hpp">
       <Filter>Headers</Filter>
     </ClInclude>
