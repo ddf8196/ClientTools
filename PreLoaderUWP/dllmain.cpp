@@ -1,11 +1,9 @@
-﻿// dllmain.cpp : 定义 DLL 应用程序的入口点。
-#include "pch.h"
+﻿#include "pch.h"
 #include <fcntl.h>
 #include <io.h>
 
 void fixUpLibDir();
 void loadDlls();
-#pragma comment(linker, "/export:GetServerSymbol=ClientPreLoader.dlsym_real")
 
 void openConsole() {
     AllocConsole();
